@@ -2,6 +2,7 @@
 #include<ctime>
 #include<fstream>
 #include <unistd.h>
+#include<string>
 using namespace std;
 
 class one{
@@ -28,7 +29,7 @@ class two : public one
 {
     protected:
     int pizza,ch,a,b,c,d,e,f,g,h,ha,i,j,k,l,m,n,o,p,q,r,ra,t,u,v,w,x,s=0;
-    string y,ye;
+    string y,ye,st2;
     public:
     void menu2(){
         ofstream write;
@@ -329,33 +330,33 @@ class two : public one
                         goto a;
                     }
                     else{
-                        cout<<"\n\n\t\t\t Thank you for your order :) Generating Bill ";
-                          for(int a=1;a<0;a++)
-                        {
-                            sleep(500);
-                            cout<<"...";
-                        }
-                        cout<<"\n\t\t\t\t\t\t";
-                        
+                        cout<<"\n\n\t\t\t Thank you for your order :) Generating Bill "<<endl;
                     }
            }
-    cout<<"\n\t\t==========================================="<<endl;
-    cout<<"\t\t\t Pizza Station";
-    cout<<"\n\t\t==========================================="<<endl;
-    cout<<"\t\t Address - 183, Race Course Road\n\t\t\t\tIndore (452001)"<<endl;
+           write.close();
+    cout<<"\n\n\t\t==================================================="<<endl;
+    cout<<"\t\t\t\tPizza Station";
+    cout<<"\n\t\t==================================================="<<endl;
+    cout<<"\t\t  Address - 183, Race Course Road\n\t\t\t\tIndore (452001)"<<endl;
     cout<<"\n\t\t Contact No. - (0731)2453627"<<endl;
     time_t tt;
     struct tm * ti;
     time(&tt) ;
     ti=localtime(&tt);
     cout<<"\n\t\t Day, Date, Time: "<<asctime(ti);
-    cout<<"\n\t\t Bill No: "<<rand()<<"\t\t\t Order No: "<<rand()<<endl;
+    cout<<"\n\t\t Bill No: "<<rand()<<"\t\tOrder No: "<<rand()<<endl;
     cout<<"\n\n\t\t Cashier : Arpit"<<endl;
-    cout<<"\n\n\t\t Your total Bill is Rs."<<s<<endl;
+    ifstream read("order.text");
+        while(!read){
+         read>>st2;
+        }
+        getline(read,st2);
+        cout<<"\n\t\t"<<st2;
+        read.close();
+    cout<<"\n\n\t\t Your total Bill is Rs."<<s<<"(inc. GST)"<<endl;
     cout<<"\n\n";
-    write.close();
     }
-    void showl()
+    void show1()
     {
         menu1();
         menu2();
@@ -366,7 +367,6 @@ class two : public one
 int main()
 {
     two obj1;
-    obj1.menu1();
-    obj1.menu2();
+    obj1.show1();
     return 0;
 }
