@@ -347,11 +347,11 @@ class two : public one
     cout<<"\n\t\t Bill No: "<<rand()<<"\t\tOrder No: "<<rand()<<endl;
     cout<<"\n\n\t\t Cashier : Arpit"<<endl;
     ifstream read("order.text");
-        while(!read){
-         read>>st2;
+        char data[200];
+        while(!read.eof()){
+         read.getline(data,200);
+        cout<<"\n\t\t"<<data<<"\n";
         }
-        getline(read,st2);
-        cout<<"\n\t\t"<<st2;
         read.close();
     cout<<"\n\n\t\t Your total Bill is Rs."<<s<<"(inc. GST)"<<endl;
     cout<<"\n\n";
